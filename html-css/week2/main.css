@@ -1,0 +1,161 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.header {
+    background-color: rgb(235, 233, 233);
+    padding-top: 2%;
+    padding-left: 15%;
+    padding-bottom: 4%;
+    line-height: 1.5em;
+    text-align: center;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+.header p {
+    color: gray;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    padding: 25px;
+    padding-left: 14%;
+    list-style-type: none;
+    font-size: 1.2em;
+}
+
+.navbar a {
+    text-decoration: none;
+    padding: 15px;
+    color: black;
+}
+
+.image-office {
+    width: 100%;
+    height: auto;
+}
+
+.uppercase {
+    text-transform: uppercase;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+.container-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 150px;
+}
+
+.box1 {
+    font-size: 0.8rem;
+}
+
+.container-text p {
+    color: gray;
+}
+
+.box2 {
+    font-size: 1.1rem;
+    padding-right: 50px;
+}
+
+.container-gallery-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.container-gallery-logo p {
+    color: gray;
+}
+
+.gallery {
+    width: 60%;
+    padding-left: 150px;
+}
+
+.logotypes {
+    font-size: 1.1rem;
+    padding-right: 40px;
+    width: 60%;
+}
+
+.logos {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.logos li {
+    padding: 30px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: white;
+    background-color: rgb(96, 38, 134);
+    line-height: 2em;
+}
+
+.find-us p {
+    color: white;
+}
+
+.about-page p {
+    color: white;
+}
+
+.archives {
+    list-style-type: none;
+    line-height: 3rem;
+}
+
+.archives a {
+    text-decoration: none;
+    color: white;
+}
+
+.navigation {
+    list-style-type: none;
+    line-height: 3rem;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        display: flex;
+        flex-direction: column;
+    }
+    .container-text {
+        display: flex;
+        flex-direction: column;
+    }
+    .container-gallery-logo {
+        display: flex;
+        flex-direction: column;
+    }
+    .footer {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        padding-left: 20px;
+    }
+}
