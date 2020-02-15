@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="page.css">
+    <title>Form</title>
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <p class="logo">logo</p>
+            <p class="navigation">navigation</p>
+        </div>
+    </header>
+    <div class="sign-up">
+        <h1>Sign up to yourcustomtailor.com</h1>
+
+    </div>
+    <div class="progress-bar">
+        <h2>Step2/4-how we can reach you?</h2>
+        <label for="file">Progress:</label><br>
+        <progress id="file" max="100" value="50"> 50% </progress>
+        <p>We will probably need to stay in touch somehow.Let us know how we can reach you?</p>
+    </div>
+
+
+
+    <form class="form">
+        <div>
+            <label for="email">Email*
+                <input type="email" id="email" required></label>
+            <label for="phone">Phone
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"></label>
+        </div>
+        <div>
+            <label for="pwd">Password*
+                <input type="password" id="pwd" name="pwd"
+                    placeholder="Minimum 10 characters, uppercase and lowercase letters" pattern="[A-Za-z]{10,}"
+                    required></label>
+        </div>
+        <div>
+            <label for="re-pwd">Re-enter Password*
+                <input type="password" id="re-pwd" name="re-pwd"
+                    placeholder="Minimum 10 characters, uppercase and lowercase letters" pattern="[A-Za-z]{10,}"
+                    required></label>
+        </div>
+
+        <div class="newsletter">
+            <p>I want to sign up for newsletter</p>
+            <label for="weekly-news">Weekly news
+                <input type="radio" id="weekly-news" name="news" value="news" required>
+            </label>
+            <label for="monthly-news">Monthly news
+                <input type="radio" id="monthly-news" name="news" value="news">
+            </label>
+            <label for="no-news">Don't send me news
+                <input type="radio" id="no-news" name="news" value="news">
+            </label>
+        </div>
+        <div>
+            <button type="submit"></button>
+            <a class="btn" href="page3.html">Next step</a>
+
+        </div>
+    </form>
+</body>

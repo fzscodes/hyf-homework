@@ -1,0 +1,161 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  padding-top: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.logo {
+  margin-left: 10%;
+  width: 15%;
+  height: 40px;
+  background-color: rgb(160, 154, 154);
+  color: black;
+  border: 2px solid rgb(178, 192, 179);
+  text-align: center;
+
+}
+
+.navigation {
+  width: 25%;
+  height: 40px;
+  background-color: rgb(160, 154, 154);
+  color: black;
+  border: 2px solid rgb(178, 192, 179);
+  text-align: center;
+
+}
+
+label {
+  padding-right: 50px;
+  font-weight: bold;
+}
+
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  width: 50%;
+  height: 30px;
+}
+
+.sign-up h1 {
+  padding: 20px 0px;
+}
+
+.sign-up {
+  width: 50%;
+  margin-left: 5%;
+  padding-bottom: 20px;
+  line-height: 1.5em;
+
+}
+
+.progress-bar {
+  margin-left: 5%;
+  line-height: 2em;
+}
+
+.form {
+  margin-left: 5%;
+  margin-top: 20px;
+  line-height: 3em;
+  margin-bottom: 20px;
+}
+
+.profile-description {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.profile-description p {
+  font-style: italic;
+  font-size: .9em;
+  line-height: 1.1em;
+
+}
+
+.profile-description :first-child {
+  width: 10%;
+}
+
+
+
+
+.items {
+  width: 25%;
+  margin-left: 5%;
+}
+
+.images {
+  width: 73%;
+}
+
+.btn {
+  float: right;
+  margin-right: 50%;
+  width: 10%;
+  background-color: rgb(160, 154, 154);
+  list-style-type: none;
+  color: black;
+  border: 2px solid rgb(178, 192, 179);
+  text-align: center;
+  text-decoration: none;
+}
+
+
+.btn:hover {
+  background-color: rgb(91, 212, 228);
+  color: white;
+}
+
+#last-button {
+  height: 60px;
+  width: 15%;
+  margin-left: 500px;
+  background-color: rgb(160, 154, 154);
+}
+
+#shipping-address:checked ~ .custom-address { 
+  display: none;
+}
+@media only screen and (max-width: 650px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+  }
+  .billing-address{
+    width:50%;
+  }
+  .custom-address{
+    width:50%;
+  }
+  .profile-description{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .form{
+    width: 40%;
+  }
+  .newsletter{
+    width: 50%;
+  }
+  .credit-card{
+    display: flex;
+    flex-direction: column;
+  }
+  .btn{
+    width: 30%;
+  }
+}
