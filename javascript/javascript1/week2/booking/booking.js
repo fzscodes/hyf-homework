@@ -1,10 +1,10 @@
 function getFullName(firstname, surname, useFormalName) {
     let ourFullName = firstname + " " + surname;
 
-    if (useFormalName === true && firstname === '' && surname === '') {
+    if (useFormalName && firstname === '' && surname === '') {
         ourFullName = '';
     }
-    else if (useFormalName === true) {
+    else if (useFormalName) {
         ourFullName = "Lord " + ourFullName;
     }
 

@@ -14,7 +14,7 @@ function whatToWear(temperature) {
     }
     return clothes;
 }
-let clothesToWear = whatToWear(29);
+const clothesToWear = whatToWear(29);
 console.log(clothesToWear);
-let clothesToWear1 = whatToWear(5);
+const clothesToWear1 = whatToWear(5);
 console.log(clothesToWear1);

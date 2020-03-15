@@ -29,7 +29,7 @@ function addCandy(candyType, weight) {
 
 function canBuyMoreCandy() {
     let totalPrice=0;
-    let canBuyMore = true;
+    //let canBuyMore = true;
     //calculate total of all the candy prices
     for (let index = 0; index < boughtCandyPrices.length; index++) {
         totalPrice += boughtCandyPrices[index];
@@ -40,14 +40,14 @@ function canBuyMoreCandy() {
     }
     else{
         console.log("Enough candy for you!");
-        canBuyMore = false;
+        
     }
-    return canBuyMore;
+    
 }
 
 addCandy("Sweet", 50);
 //addCandy("Toffee", 60);
 
 console.log(boughtCandyPrices);
-console.log("AmountToSpend="+amountToSpend);
+console.log("AmountToSpend="+ amountToSpend);
 console.log(canBuyMoreCandy());

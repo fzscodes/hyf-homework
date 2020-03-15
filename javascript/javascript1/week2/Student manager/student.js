@@ -21,8 +21,8 @@ function addStudentToClass(studentName) {
 }
 
 function getNumberOfStudents() {
-    let classSize =  class07Students.length;
-    return classSize;
+    return class07Students.length;
+    
 }
 
 addStudentToClass('student1');
