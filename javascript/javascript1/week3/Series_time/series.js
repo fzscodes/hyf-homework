@@ -18,14 +18,14 @@ const seriesDurations = [
         minutes: 0,
     },
 ]
-let lifeSpanInMinutes = 80 * 365 * 24 * 60;
+const lifeSpanInMinutes = 80 * 365 * 24 * 60;
 function calculateTotalTime() {
     let totalMinutes = 0;
     for (let i = 0; i < seriesDurations.length; i++) {
-        let daysTominutes = seriesDurations[i].days * 24 * 60;
-        let hoursTominutes = seriesDurations[i].hours * 60;
+        let daysToMinutes = seriesDurations[i].days * 24 * 60;
+        let hoursToMinutes = seriesDurations[i].hours * 60;
         let minutes = seriesDurations[i].minutes;
-        let totalMinutesPerSeries = daysTominutes + hoursTominutes + minutes;
+        let totalMinutesPerSeries = daysToMinutes + hoursToMinutes + minutes;
         let timeSpentWatching = (totalMinutesPerSeries / lifeSpanInMinutes) * 100;
 
         console.log(seriesDurations[i].title + " took " + timeSpentWatching.toFixed(2) + "% of my life");

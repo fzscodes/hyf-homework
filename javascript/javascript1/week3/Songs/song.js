@@ -19,6 +19,15 @@ const songDatabase = [{
   artist: 'The spies girls',
 },
 ];
+const song1 = new Object();
+song1.songId = 5;
+song1.title = "Summer of 69";
+song1.artist = "Bryan Adams";
+
+const song2 = new Object();
+song2.songId = 6;
+song2.title = "Cheap Thrills";
+song2.artist = "Sia";
 
 
 const myPlaylist = [];
@@ -37,15 +46,6 @@ console.log(myPlaylist);
 function addSongToDatabase(song) {
   songDatabase.push(song);
 }
-const song1 = new Object();
-song1.songId = 5;
-song1.title = "Summer of 69";
-song1.artist = "Bryan Adams";
-
-const song2 = new Object();
-song2.songId = 6;
-song2.title = "Cheap Thrills";
-song2.artist = "Sia";
 
 addSongToDatabase(song1);
 addSongToDatabase(song2);
@@ -68,11 +68,16 @@ console.log(searchedSong3);
 
 function addSongToMyPlaylist(title) {
   index = songDatabase.findIndex(x => x.title === title);
+  if (index >=0){
   const newSongToAdd = songDatabase[index];
-  
   myPlaylist.push(newSongToAdd);
   return myPlaylist;
+  }
+  else{
+    console.log("Can't find this title");
+  }
 
 }
 addSongToMyPlaylist('3 nails in wood');
 console.log(myPlaylist);
+addSongToMyPlaylist('nothing else matters');

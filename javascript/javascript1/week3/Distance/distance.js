@@ -12,9 +12,11 @@ function getTime(param1) {
     let rhours = Math.floor(hours);
     let minutes = (hours - rhours) * 60;
     let rminutes = Math.round(minutes);
-    let timeResult = rhours + ' hours and ' +  rminutes +' minutes';
+    let timeResult = new Object();
+    timeResult.hours = rhours;
+    timeResult.minutes = rminutes;
     return timeResult;
 }
-
 let result = getTime(travelInformation);
 console.log(result);
+console.log(result.hours + " hours and " + result.minutes + " minutes");
