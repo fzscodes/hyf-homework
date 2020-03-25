@@ -15,14 +15,14 @@ function addStudentToClass(studentName) {
         console.log("Sorry cannot add a student without name!");
     }
     else {
-    class07Students.push(studentName);
+        class07Students.push(studentName);
     }
 
 }
 
 function getNumberOfStudents() {
     return class07Students.length;
-    
+
 }
 
 addStudentToClass('student1');
@@ -30,23 +30,12 @@ addStudentToClass('student2');
 addStudentToClass('student3');
 addStudentToClass('student4');
 addStudentToClass('student5');
-
-// add a student who has no name
 addStudentToClass('');
-
 addStudentToClass('student6');
-
-// add more student than available space
 addStudentToClass('student3');
-
-// add someone already enrolled
 addStudentToClass('student7');
-
-// add queen to full class
 addStudentToClass('Queen');
 
 let class07Size = getNumberOfStudents();
 console.log('number of students in class 07 is ' + class07Size);
-
-// see the students added to class 07
 console.log(class07Students);

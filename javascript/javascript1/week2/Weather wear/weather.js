@@ -1,5 +1,5 @@
 function whatToWear(temperature) {
-  let clothes = "";
+    let clothes = "";
 
     if (temperature <= 15) {
         clothes = "Wear a jacket";

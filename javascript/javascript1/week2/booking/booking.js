@@ -14,7 +14,7 @@ function getFullName(firstname, surname, useFormalName) {
 let fullName1 = getFullName('Fauzia', 'Siddique', false);
 let fullName2 = getFullName('Benjamin', 'Hughes', true);
 let fullName3 = getFullName('John', 'Ray');
-let fullName4 = getFullName('', '', true);// creates an empty string
+let fullName4 = getFullName('', '', true);
 let fullName5 = getFullName('Maria', '', true);
 let fullName6 = getFullName('', 'Stevens', true);
 console.log(fullName1);
