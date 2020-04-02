@@ -1,37 +1,26 @@
 console.log('Script loaded');
-let products = [];
 
-const testProductNames = ['Flat screen', 'Mobile phone', 'Wallet'];
+const products = getAvailableProducts();
 
-function renderProducts() {
-    const productsAvailable = getAvailableProducts();
-    const ulTag = document.querySelector("section > ul");
+function renderProducts(products) {
+    const productsUl = document.querySelector('section.products ul');
+    products.forEach(product => {
+        const li = document.createElement('li');
 
-    for (let i = 0; i < productsAvailable.length; i++) {
-        const liTag = document.createElement('li');
-        const childUlTag = document.createElement("ul");
-        for (let j = 1; j <= 4; j++) {
-            const childLiTag = document.createElement("li");
-            childLiTag.setAttribute('class', Object.keys(productsAvailable[i])[j]);
-            childLiTag.innerHTML = Object.values(productsAvailable[i])[j];
-            childUlTag.appendChild(childLiTag);
-        }
-        liTag.appendChild(childUlTag);
-        ulTag.appendChild(liTag);
-    }
+        let shipsToHTML = '';
+        product.shipsTo.forEach(country => shipsToHTML += `<li>${country}</li>`);
+
+        li.innerHTML = `
+            <ul>
+                <li>${product.name}</li>
+                <li>${product.price}</li>
+                <li>${product.rating}</li>
+                <ul class="ships-to">${shipsToHTML}</ul>
+            </ul>
+        `;
+        productsUl.appendChild(li);
+    });
 }
-function getAvailableProducts() {
-    for (var i = 0; i < testProductNames.length; i++) {
-        products.push(
-            {
-                id: 23771821 + i,
-                name: testProductNames[i],
-                price: 4000,
-                rating: 4.2,
-                shipsTo: ['denmark', 'germany']
+renderProducts(products);
 
-            });
-    }
-    return products;
-}
-renderProducts();
+
