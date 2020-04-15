@@ -45,7 +45,7 @@ hr.horizontal{
 
 h2{
     font-size:2rem;
-    /* -webkit-animation: dangle 3s infinite; */
+    -webkit-animation: dangle 3s infinite; 
 }
 @-webkit-keyframes dangle {
     0% { -webkit-transform: rotate(20deg); }
