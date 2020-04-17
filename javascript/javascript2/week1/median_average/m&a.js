@@ -17,13 +17,12 @@ function calculateMedian(values) {
         median = (arrSort[mid] + arrSort[mid - 1]) / 2;
     }
     else {
-        median = arrSort[mid];
+        median = arrSort[mid - 1];
     }
     return median;
 }
 
-function getMedianAndAverage(arrayOfNumbers)
-{
+function getMedianAndAverage(arrayOfNumbers) {
     let averageVal = calculateAverage(housePrices);
     let medianVal = calculateMedian(housePrices);
 
