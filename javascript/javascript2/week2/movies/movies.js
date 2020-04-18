@@ -19,48 +19,54 @@ console.log(highRatedMovies);
 //Count the total number of movies containing any of following keywords: Surfer, Alien or Benjamin
 const movieNamesWithKeywords = movies.filter(movie => movie.title.toLowerCase().includes("alien") || movie.title.toLowerCase().includes("surfer") || movie.title.toLowerCase().includes("benjamin")).length;
 console.log(movieNamesWithKeywords);
+
 //Create an array of movies where a word in the title is duplicated.
 let moviesWithDuplicateWordsInTitle = movies.filter(movie => hasDuplicateWords(movie.title));
 console.log(moviesWithDuplicateWordsInTitle);
+
 //Calculate the average rating of all the movies using reduce
-const ratingOfAllMovies = movies.map(movie => movie.rating)
-const reducer = (accumulator, currentValue)=> accumulator + currentValue;
-const averageRating = (ratingOfAllMovies.reduce(reducer)) / movies.length ;
+const reducer = (accumulator,movie) => accumulator + movie.rating;
+const averageRating =movies.reduce(reducer,0)/ movies.length;
 console.log(averageRating);
-//Count the total number of Good, Average and Bad movies using reduce
-const allGoodMovies = movies.filter(movie => movie.tag === "Good");
-const totalNoOfGoodMovies = allGoodMovies.length;
-console.log(totalNoOfGoodMovies);
-const allAvgMovies = movies.filter(movie => movie.tag === "Average");
-const totalNoOfAvgMovies = allAvgMovies.length;
-console.log(totalNoOfAvgMovies);
-const allBadMovies = movies.filter(movie => movie.tag === "Bad");
-const totalNoOfBadMovies = allBadMovies.length;
-console.log(totalNoOfBadMovies);
+
+//Count the total number of Good, Average and Bad movies using reduce.
+const noOfMoviesAccToRating = movies.reduce((acc, movie) => {
+    if (movie.tag === "Good") {
+        acc.Good++;
+    }
+    else if (movie.tag === "Average") {
+        acc.Average++;
+    }
+    else {
+    acc.Bad++;
+    }
+    return acc;
+},
+    { Good: 0, Average: 0, Bad: 0 }
+);
+console.log(noOfMoviesAccToRating);
 
 
-
-function addTagToMovie(movie){
-    if( movie.rating >= 7){
+function addTagToMovie(movie) {
+    if (movie.rating >= 7) {
         movie.tag = "Good";
         return movie;
     }
-    if( movie.rating >= 4 && movie.rating < 7){
+    else if (movie.rating >= 4 && movie.rating < 7) {
         movie.tag = "Average";
         return movie;
     }
-    if( movie.rating < 4){
-        movie.tag ="Bad";
+    else (movie.rating < 4)
+        movie.tag = "Bad";
         return movie;
-    }
-}
+    };
 
 
-function hasDuplicateWords(movieTitle)
-{
+
+function hasDuplicateWords(movieTitle) {
     let wordArray = movieTitle.split(' ');
     let dupWords = wordArray.filter((item, index) => wordArray.indexOf(item) !== index);
-    if(dupWords.length > 0){
+    if (dupWords.length > 0) {
         return true;
     }
     return false;

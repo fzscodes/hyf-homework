@@ -24,7 +24,7 @@ function renderProducts(products) {
 renderProducts(products);
 
 document.querySelector(".search > input").addEventListener('keyup', (event) => {
-let filteredProduct = products.filter(product => product.name === event.target.value);
+const filteredProduct = products.filter(product => product.name === event.target.value);
   document.querySelector('section.products ul').innerHTML = "";
   renderProducts(filteredProduct);
 });
