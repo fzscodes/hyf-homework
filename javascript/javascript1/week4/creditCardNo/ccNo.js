@@ -9,5 +9,5 @@ function formatCreditCardNumber(number) {
     }
     return result;
 }
-const formattedCreditCardObject = formatCreditCardNumber(123456789);
-console.log(formattedCreditCardObject);
+const formattedCreditCard = formatCreditCardNumber(123456789);
+console.log(formattedCreditCard);
