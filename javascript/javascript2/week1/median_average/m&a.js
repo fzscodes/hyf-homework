@@ -10,7 +10,10 @@ function calculateAverage(value) {
 }
 
 function calculateMedian(values) {
-    const arrSort = values.sort();
+    const arrSort = values.sort(function(a,b){
+        return a-b ;
+    });
+
     const mid = Math.ceil(values.length / 2);
     let median;
     if ((values.length) % 2 == 0) {
