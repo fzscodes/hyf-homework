@@ -5,7 +5,7 @@ function formatCreditCardNumber(number) {
     while (numberToString.length > 0) // Loop through string
     {
         result = result + " " + numberToString.substring(0, gap_size); // Insert space character
-        number = numberToString.substring(gap_size);  // Trim String
+        numberToString = numberToString.substring(gap_size);  // Trim String
     }
     return result;
 }

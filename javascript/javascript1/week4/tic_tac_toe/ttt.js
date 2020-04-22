@@ -1,4 +1,4 @@
-let position = [
+let gameBoard = [
     ['x', 'o', ' '],
     [' ', 'o', ' '],
     [' ', 'o', 'x']
@@ -13,7 +13,7 @@ function getRenderedGame(position) {
     return result;
 
 }
-const renderedGame = getRenderedGame(position);
+const renderedGame = getRenderedGame(gameBoard);
 console.log(renderedGame);
 
 function getGameInfo(position)
@@ -58,7 +58,10 @@ function hasWon(position, player) {
     return false;
 }
 
-console.log(hasWon(position, 'x'));
-console.log(hasWon(position, 'o'));
-console.log(getGameInfo(position));
+const xWon = hasWon(gameBoard, 'x');
+console.log("X won the game: "+ xWon);
+const oWon = hasWon(gameBoard, 'o');
+console.log("O won the game: " + oWon);
+const gameInfo = getGameInfo(gameBoard);
+console.log(gameInfo);
 

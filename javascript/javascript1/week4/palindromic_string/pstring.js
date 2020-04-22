@@ -1,28 +1,28 @@
 function longestPalindrome(str) {
-  const string = str.toLowerCase();
+  str = str.toLowerCase();
   if (str.length < 2) {
-    return null;
+    return "";
   }
 
   let palindrome = "";
 
-  for (let i = 0; i < string.length; i++) {
-    for (let j = 1; j <= string.length - i; j++) {
-      if (string.substr(i, j) === stringReverser(string, i, j)) {
+  for (let i = 0; i < str.length; i++) {
+    for (let j = 1; j <= str.length - i; j++) {
+      if (str.substr(i, j) === getReversedString(str, i, j)) {
         if (j > palindrome.length) {
-          palindrome = string.substr(i, j);
+          palindrome = str.substr(i, j);
         }
       }
     }
   }
 
   if (!palindrome) {
-    return null;
+    return "";
   }
 
   return palindrome;
 }
-function stringReverser(stringToReverse, start, length) {
+function getReversedString(stringToReverse, start, length) {
   const reversed = stringToReverse.substr(start, length).split('').reverse().join('');
   return reversed;
 }
