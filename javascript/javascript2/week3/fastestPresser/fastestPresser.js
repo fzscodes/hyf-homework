@@ -41,7 +41,9 @@ function startGame() {
         counterL = 0;
         countS.textContent = "";
         countL.textContent = "";
-        clearConfetti();
+        if(confettiGenerator){
+            clearConfetti();
+        }
         gameEnd = false;
         gameStart = true;
     }
@@ -61,14 +63,14 @@ function displayGameResult() {
         messageForL.textContent = "Congratulations! You win.";
         renderConfetti('l-canvas');
     }
-    else if (counterS = counterL) {
+    else if (counterS === counterL) {
         messageForS.textContent = "It's a draw";
         messageForL.textContent = "It's a draw";
     }
 }
 function renderConfetti(targetId) {
     let confettiSettings = { target: targetId, width: 400, height: 150 };
-    var confetti = new ConfettiGenerator(confettiSettings);
+    let confetti = new ConfettiGenerator(confettiSettings);
     confetti.render();
     confettiGenerator = confetti;
 }
