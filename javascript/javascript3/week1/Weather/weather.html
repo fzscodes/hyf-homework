@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="weather.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <div id="container-input">
+            <input type="text" id="input-textbox" placeholder="Enter City" required><br>
+            <button type="button" id="btn">Click me</button>
+        </div>
+        <div class ="content">
+            <p id="city_name"></p>
+            <p id="temp"></p>
+            <img src="" id="icon" alt="weather icon" hidden="true">
+            <p id="wind"></p>
+            <p id="clouds"></p>
+            <p id="sunrise"></p>
+            <p id="sunset"></p>
+            <p id="loader" hidden ="true"></p>
+    </div>
+    <div id="map"></div>
+    </section> 
+    <script src="weather.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
+</body>
+
+</html>
