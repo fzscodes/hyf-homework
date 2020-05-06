@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    font-style:italic ;
+    font-size:5rem;
+    font-weight:bold;
+    text-align: center;
+    margin: 1%;
+}
+#container-input{
+    text-align: center;
+    
+}
+#input-textbox{
+    height :40px;
+    border-radius: 5px;
+    margin-bottom: 1%;
+    width: 15%;
+}
+#btn{
+    height:70px;
+    border-radius: 7px;
+    width:8%;
+    background-color: rgb(51, 203, 68);
+    color: white;
+}
+.game-sections{
+    display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex:1;
+}
+
+hr.vertical{
+    height: 500px;
+}
+hr.horizontal{
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+}
+
+
+h2{
+    font-size:2rem;
+    -webkit-animation: dangle 3s infinite; 
+}
+@-webkit-keyframes dangle {
+    0% { -webkit-transform: rotate(20deg); }
+    10% { -webkit-transform: rotate(-18deg); }
+    20% { -webkit-transform: rotate(16deg); }
+    30% { -webkit-transform: rotate(-14deg); }
+    40% { -webkit-transform: rotate(12deg); }
+    50% { -webkit-transform: rotate(-10deg); }
+    60% { -webkit-transform: rotate(8deg); }
+    70% { -webkit-transform: rotate(-6deg); }
+    80% { -webkit-transform: rotate(4deg); }
+}
