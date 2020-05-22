@@ -19,14 +19,17 @@ const translateOneByOne = () => {
 }
 //translateOneByOne();
 
-//translateAllAtOnce - Should translate all the circles at the same time from their random start position to their target. Log out something after all elements have been moved
-
+// translateAllAtOnce - Should translate all the circles at the same time
+// from their random start position to their target. 
+// Log out something after all elements have been moved
 const translateAllAtOnce = () => {
-    const moveRed = moveElement(redElementPosition, { x: 20, y: 300 });
-    const moveBlue = moveElement(blueElementPosition, { x: 400, y: 300 });
-    const moveGreen = moveElement(greenElementPosition, { x: 400, y: 20 });
-    Promise.all([moveRed, moveBlue, moveGreen]).then(() => {
-        console.log("All the elements have been moved");
-    })
+    return Promise.all([
+        moveElement(redElementPosition, { x: 20, y: 300 }),
+        moveElement(blueElementPosition, { x: 400, y: 300 }),
+        moveElement(greenElementPosition, { x: 400, y: 20 })
+    ]);
 }
-translateAllAtOnce();
+translateAllAtOnce()
+    .then(() => {
+        console.log("All the elements have been moved");
+    });

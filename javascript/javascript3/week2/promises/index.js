@@ -85,9 +85,7 @@ fetch(url)
     })
     .catch((error) => console.log(error));
 
-
 const myFuncAsync = async () => {
-    const url = 'https://yesno.wtf/api';
     const res = await fetch(url);
     const result = await res.json();
     setTimeout(() => {
