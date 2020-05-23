@@ -35,3 +35,8 @@
     background-color: rgb(51, 203, 68);
     color: white;
 }
+#errorMessage{
+    background-color: red;
+    color: white;
+    
+    }

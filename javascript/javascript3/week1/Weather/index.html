@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="weather.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <title>Weather App</title>
 </head>
 
 <body>
@@ -14,19 +14,20 @@
             <input type="text" id="input-textbox" placeholder="Enter City" required><br>
             <button type="button" id="btn">Click me</button>
         </div>
-        <div class ="content">
-            <p id="city_name"></p>
+        <div class="content">
+            <p id="errorMessage" hidden="true"></p>
+            <p id="city-name"></p>
             <p id="temp"></p>
             <img src="" id="icon" alt="weather icon" hidden="true">
             <p id="wind"></p>
             <p id="clouds"></p>
             <p id="sunrise"></p>
             <p id="sunset"></p>
-            <p id="loader" hidden ="true"></p>
-    </div>
-    <div id="map"></div>
-    </section> 
-    <script src="weather.js"></script>
+            <p id="loader" hidden="true"></p>
+        </div>
+        <div id="map"></div>
+    </section>
+    <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
 </body>
 
