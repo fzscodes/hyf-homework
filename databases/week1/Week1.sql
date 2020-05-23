@@ -8,12 +8,12 @@ FROM task
 WHERE due_date  is NULL;
 
 -- 3.Find all the tasks that are marked as done
-SELECT count(*)
+SELECT *
 FROM task
 WHERE status_id = 3;
 
 -- 4.Find all the tasks that are not marked as done
-SELECT count(*)
+SELECT *
 FROM task
 WHERE status_id != 3;
 
@@ -31,8 +31,8 @@ LIMIT 1;
 -- 7.Get the title and due date of all tasks where the title or description contains database
 SELECT title,due_date 
 FROM task
-WHERE title REGEXP "database"
-OR description REGEXP "database";
+WHERE title LIKE '%database%'
+OR description LIKE '%database%';
 
 -- 8.Get the title and status (as text) of all tasks
 SELECT t.title, s.name  
