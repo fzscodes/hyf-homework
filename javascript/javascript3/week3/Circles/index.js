@@ -38,19 +38,19 @@ c2.draw();
 c3.draw();
 
 //Now lets make art!
+const getRandomNumber = () => {
+    return Math.floor(Math.random() * 256);
+};
+
 setInterval(() => {
-    const red = Math.floor(Math.random() * 256);
-    const green = Math.floor(Math.random() * 256);
-    const blue = Math.floor(Math.random() * 256);
     const maxRadius = 20;
     const minRadius = 3;
-
     x = Math.random() * canvas.width;
     y = Math.random() * canvas.height;
     r = minRadius + (Math.random() * (maxRadius - minRadius));
     startAngle = 0;
     endAngle = 2 * Math.PI
-    fillColor = `rgb( ${red}, ${green}, ${blue})`
+    fillColor = `rgb( ${getRandomNumber()}, ${getRandomNumber()}, ${getRandomNumber()})`
     const c4 = new Circle(x, y, r, startAngle, endAngle, fillColor);
     c4.draw()
 }, 100);
