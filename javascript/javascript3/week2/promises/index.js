@@ -1,4 +1,4 @@
-//Create a function that has one parameter: resolveAfter. Calling this function will return a promise that resolves after the resolveAfter seconds has passed.
+// //Create a function that has one parameter: resolveAfter. Calling this function will return a promise that resolves after the resolveAfter seconds has passed.
 
 const myPromiseFunction = (resolveAfter) => {
     return new Promise((resolve, reject) => {
@@ -76,14 +76,21 @@ getCurrentLocation()
 // Which way do you prefer, the promise way or the async/await way?
 
 const url = "https://yesno.wtf/api";
-fetch(url)
-    .then((res) => res.json())
-    .then((result) => {
-        setTimeout(() => {
-            console.log(result.answer);
-        }, 3000);
-    })
-    .catch((error) => console.log(error));
+const myFuncPromise = () => {
+    return new Promise(resolve => {
+        fetch(url)
+        .then(response => response.json())
+        .then(result => {
+            setTimeout(() => {
+                resolve(result.answer);
+                }, 3000);
+            });
+        });
+}
+myFuncPromise()
+.then(res => {
+   console.log("Answer logged after 3 seconds: "+res)
+ });
 
 const myFuncAsync = async () => {
     const res = await fetch(url);
@@ -92,4 +99,4 @@ const myFuncAsync = async () => {
         console.log('async/await', result.answer);
     }, 3000);
 }
-myFuncAsync();
+
