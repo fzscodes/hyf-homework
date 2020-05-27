@@ -1,0 +1,21 @@
+API - tacofancy-api
+Main Endpoint- http://taco-randomizer.herokuapp.com/
+
+How it works - Visiting the main endpoint in browser will get you a random taco.
+
+This API gives three types of data:
+1: It gives a random taco recipe.
+To get a random Base Layer, Mixin, Condiment, Seasoning and Shell the path is: {mainEndpint}/random/
+In order to get a random full taco recipe path is: /random/?full-taco=true
+
+2: It can give info about the contributors for a certain recipe.
+The path for this is: /contributors/:recipe_type/:recipe_slug/.
+
+3: It gives info about the different contributors to a specific recipe.
+For this the endpoint is: /contributions/:github_username/.
+To get a list of all the contributors and their username the endpoint is: /contributions/
+
+Type of JSON data:
+For random recipe - An object with these keys --> Condiment,Shell,Base-Layer,Seasoning and Mixin.
+For info about contributors for a given recipe --> Array of contributor objects.
+For info about different contributions- Object of arrays.

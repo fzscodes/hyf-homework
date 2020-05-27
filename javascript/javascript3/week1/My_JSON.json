@@ -1,0 +1,12 @@
+[{
+    "name":"snoopy",
+    "type":"dog"
+},
+{
+    "name":"kiki",
+    "type":"cat" 
+},
+{
+    "name":"bunny",
+    "type":"rabbit" 
+}]

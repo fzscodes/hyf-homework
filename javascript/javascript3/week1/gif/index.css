@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-style: italic;
+  }
+  header{
+      text-align: center;
+      font-weight: bold;
+      font-size: 2rem;
+  }
+#container-input{
+    text-align: center;
+    
+}
+#input-textbox{
+    height :40px;
+    border-radius: 5px;
+    margin-bottom: 1%;
+    margin-top:1%;
+    width: 15%;
+}
+#input-number{
+    height :40px;
+    border-radius: 5px;
+    margin-bottom: 1%;
+    margin-top:1%;
+    width: 15%;
+}
+
+#btn{
+    height:50px;
+    border-radius: 7px;
+    width:8%;
+    background-color: rgb(51, 203, 68);
+    color: white;
+}
+#errorMessage{
+    background-color: red;
+    color: white;
+    
+    }
