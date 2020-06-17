@@ -11,14 +11,14 @@ CREATE TABLE  `Meal` (
  `meal_time` DATETIME NOT NULL,
  `max_reservations` int(10) unsigned NOT NULL,
  `price` DECIMAL(6, 2) NOT NULL,
- `created_date` DATE NOT NULL
+ `created_date` DATETIME NOT NULL default NOW()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `Reservation`(
  `id` int(10) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
  `number_of_guests` int(10) unsigned NOT NULL,
  `meal_id` int(10) unsigned NOT NULL,
- `created_date` DATE NOT NULL,
+ `created_date` DATETIME NOT NULL default NOW(),
  CONSTRAINT `fk_meal_reservation` FOREIGN KEY (`meal_id`) REFERENCES `Meal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -28,7 +28,7 @@ CREATE TABLE `Review`(
  `description` text NULL DEFAULT NULL,
  `meal_id` int(10) unsigned NOT NULL,
  `stars` int(10) unsigned NOT NULL,
- `created_date` DATE NOT NULL,
+ `created_date` DATETIME NOT NULL default NOW(),
  CONSTRAINT `fk_meal_review` FOREIGN KEY (`meal_id`) REFERENCES `Meal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
  
@@ -107,16 +107,16 @@ insert into Reservation (number_of_guests,meal_id,created_date)
 -- 3)Get a reservation with any id, fx 1
 SELECT *
 FROM Reservation
-WHERE id = 1;
+WHERE id = 2;
 
 -- 4)Update a reservation with any id, fx 1. Update any attribute fx the title or multiple attributes
 UPDATE Reservation
 SET number_of_guests = '15'
-WHERE id = 1;
+WHERE id = 2;
 
 -- 5)Delete a reservation with any id, fx 1
 DELETE FROM Reservation
-WHERE id = 1;
+WHERE id = 4;
 
 -- REVIEW
 -- 1)Get all reviews
@@ -130,16 +130,16 @@ insert into Review (title, description, meal_id, stars,created_date)
 -- 3)Get a review with any id, fx 1
 SELECT *
 FROM Review
-WHERE id = 1;
+WHERE id = 2;
 
 -- 4)Update a review with any id, fx 1. Update any attribute fx the title or multiple attributes
 UPDATE Review
 SET description = 'Good'
-WHERE id = 1;
+WHERE id = 2;
 
 -- 5)Delete a review with any id, fx 1
 DELETE FROM Review
-WHERE id = 1;
+WHERE id = 2;
 
 -- Additional Queries
 -- Now add a couple of different meals, reservations and reviews with different attributes
@@ -202,11 +202,15 @@ FROM meal
 WHERE price < 90;
 
 -- 2)Get meals that still has available reservations
-SELECT* 
-FROM Meal m
-JOIN Reservation rs
-ON m.id = rs.meal_id
-WHERE max_reservations > number_of_guests;
+SELECT m.title
+FROM   Meal m
+       JOIN Reservation rs
+         ON m.id = rs.meal_id
+WHERE  m.max_reservations > rs.number_of_guests
+GROUP  BY rs.meal_id
+HAVING Sum(rs.number_of_guests) < m.max_reservations; 
+
+
 
 -- 3)Get meals that partially match a title.
 SELECT * 
@@ -224,18 +228,26 @@ FROM meal
 LIMIT 5;
 
 -- 6)Get the meals that have good reviews
-SELECT m.title,m.description,m.location,m.max_reservations,m.price,r.meal_id,r.stars
-FROM Meal m
-JOIN Review r
+SELECT m.title,
+       m.description,
+       m.location,
+       m.max_reservations,
+       m.price,
+       r.meal_id,
+       Avg(r.stars)
+FROM meal m
+JOIN review r
 ON m.id = r.meal_id
-WHERE r.stars >= 4;
+GROUP BY r.meal_id
+HAVING Avg(r.stars) > 3;
 
 -- 7)Get reservations for a specific meal sorted by created_date
-SELECT * 
+SELECT m.title, sum(rs.number_of_guests), rs.created_date
 FROM Reservation rs
 JOIN Meal m
 ON m.id = rs.meal_id
 WHERE m.id = 12
+GROUP BY rs.meal_id, rs.created_date
 ORDER BY rs.created_date DESC;
 
 -- 8)Sort all meals by average number of stars in the reviews
@@ -245,5 +257,3 @@ INNER JOIN Review r
 ON m.id = r.meal_id
 GROUP BY r.meal_id
 ORDER BY average_review DESC;
-
-
