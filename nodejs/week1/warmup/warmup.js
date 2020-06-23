@@ -1,16 +1,16 @@
 class Circle {
-    constructor(radius) {
-        this.radius = radius;
-    }
-    getDiameter() {
-        return this.radius * 2;
-    }
-    getCircumference() {
-        return (2 * Math.PI * this.radius).toFixed(2);
-    }
-    getArea() {
-        return (Math.PI * Math.pow(this.radius, 2)).toFixed(2);
-    }
+  constructor(radius) {
+    this.radius = radius;
+  }
+  getDiameter() {
+    return this.radius * 2;
+  }
+  getCircumference() {
+    return (2 * Math.PI * this.radius).toFixed(2);
+  }
+  getArea() {
+    return (Math.PI * Math.pow(this.radius, 2)).toFixed(2);
+  }
 }
 
 const circle1 = new Circle(10);
