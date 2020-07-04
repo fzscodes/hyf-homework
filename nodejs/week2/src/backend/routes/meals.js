@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const meals = require('../data/meals.json');
 
-router.get("/meals/:id", (req, res) => {
+router.get("/:id", (req, res) => {
     const mealId = Number(req.params.id);
     const mealWithId = meals.filter((meal) => meal.id === mealId);
     if (mealWithId.length > 0) {
@@ -12,7 +12,7 @@ router.get("/meals/:id", (req, res) => {
     }
 });
 
-router.get("/meals", (req, res) => {
+router.get("/", (req, res) => {
 
     if (req.query.maxPrice) {
         const maxPrice = Number(req.query.maxPrice);
@@ -34,9 +34,9 @@ router.get("/meals", (req, res) => {
         const mealsUptoLimit = meals.slice(0, limit);
         res.send(mealsUptoLimit);
     }
-    else if (req.originalUrl === '/meals') {
-        res.send(meals);// if original url returns all meals
-    }
+    else if(Object.keys(req.query).length === 0 && req.query.constructor === Object) {
+		res.json(meals);
+	}
     else {
         res.status(404).send('Not Found');
     }
