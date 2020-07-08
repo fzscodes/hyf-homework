@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "Indian food in the summer",
+        "maxNumberOfGuests": 5,
+        "description": "A nice night out eating delicious indian food",
+        "createdAt": "2019/12/7 14:34",
+        "price": 67
+    },
+    {
+        "id": 2,
+        "title": "Mexican delicacie",
+        "maxNumberOfGuests": 10,
+        "description": "Half-moon wraps are perfect as a snack or a mini meal",
+        "createdAt": "2019/11/5 13:45",
+        "price": 99
+    },
+    {
+        "id": 3,
+        "title": "Italian delicacie",
+        "maxNumberOfGuests": 15,
+        "description": "Lasagna alla Bolognese",
+        "createdAt": "2019/10/9 20:45",
+        "price": 79
+    }
+]
