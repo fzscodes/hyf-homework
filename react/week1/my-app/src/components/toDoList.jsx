@@ -3,13 +3,9 @@ import Table from 'react-bootstrap/Table';
 
 class ToDoListTable extends Component {
     render() { 
-        const rows = [];
-        this.props.toDoList.forEach(toDo => {
-            rows.push(
-                <ToDoItemRow 
-                toDo = {toDo} />
-            );
-        });
+    const rows = this.props.toDoList.map((todo) => (
+      <ToDoItemRow toDo={todo} />
+    ));
         return (
             <Table striped bordered variant="dark">
                 <thead>
