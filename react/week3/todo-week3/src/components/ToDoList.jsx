@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { ToDoItemRow } from "./ToDoItemRow";
 import "../App.css";
-// import PropTypes from "prop-types";
 
 class ToDoList extends Component {
   constructor(props) {
@@ -12,10 +11,11 @@ class ToDoList extends Component {
       newTodoDeadline: "",
     };
     this.fetchData = this.fetchData.bind(this);
-    // this.addItem = this.addItem.bind(this);
+    this.addItem = this.addItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.changeHandler = this.changeHandler.bind(this);
+    this.updateItem = this.updateItem.bind(this);
   }
   componentDidMount() {
     this.fetchData();
@@ -49,11 +49,27 @@ class ToDoList extends Component {
     );
     this.setState({ toDoList: todoListNew });
   }
+
+  updateItem(todo) {
+    const existingTodo = this.state.toDoList.find((item) => item.id === todo.id);
+    console.log(existingTodo);
+    const todoListNew = this.state.toDoList.filter(
+      (item) => item.id !== todo.id
+    );
+    existingTodo.description = todo.description;
+    todoListNew.push(existingTodo);
+    this.setState({
+      toDoList:todoListNew
+    });
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const taskDescription = this.state.newTodo;
     const taskDeadline = this.state.newTodoDeadline;
-    this.addItem(taskDescription, taskDeadline);
+    if (taskDescription && taskDeadline) {
+      this.addItem(taskDescription, taskDeadline);
+    }
   }
   changeHandler(event) {
     if (event.target.name === "task-description")
@@ -69,6 +85,7 @@ class ToDoList extends Component {
         toDo={todo}
         key={todo.id}
         deleteItemHandler={this.deleteItem}
+        editItemHandler={this.updateItem}
       />
     ));
     if (rows.length > 0) {
