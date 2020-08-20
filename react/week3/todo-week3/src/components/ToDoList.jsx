@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { ToDoItemRow } from "./ToDoItemRow";
 import "../App.css";
+//import PropTypes from "prop-types";
 
 class ToDoList extends Component {
   constructor(props) {
@@ -15,7 +16,6 @@ class ToDoList extends Component {
     this.deleteItem = this.deleteItem.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.changeHandler = this.changeHandler.bind(this);
-    this.updateItem = this.updateItem.bind(this);
   }
   componentDidMount() {
     this.fetchData();
@@ -50,19 +50,6 @@ class ToDoList extends Component {
     this.setState({ toDoList: todoListNew });
   }
 
-  updateItem(todo) {
-    const existingTodo = this.state.toDoList.find((item) => item.id === todo.id);
-    console.log(existingTodo);
-    const todoListNew = this.state.toDoList.filter(
-      (item) => item.id !== todo.id
-    );
-    existingTodo.description = todo.description;
-    todoListNew.push(existingTodo);
-    this.setState({
-      toDoList:todoListNew
-    });
-  }
-
   handleSubmit(e) {
     e.preventDefault();
     const taskDescription = this.state.newTodo;
@@ -79,13 +66,12 @@ class ToDoList extends Component {
   }
 
   render() {
-    const { toDoList } = this.state;
     const rows = this.state.toDoList.map((todo) => (
       <ToDoItemRow
         toDo={todo}
         key={todo.id}
         deleteItemHandler={this.deleteItem}
-        editItemHandler={this.updateItem}
+        updateItemHandler={this.updateItem}
       />
     ));
     if (rows.length > 0) {

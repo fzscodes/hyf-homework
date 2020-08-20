@@ -3,7 +3,6 @@ import "./App.css";
 import ToDoList from "./components/ToDoList";
 import Timer from "./components/Timer";
 
-
 function App() {
   return (
     <div className="App">

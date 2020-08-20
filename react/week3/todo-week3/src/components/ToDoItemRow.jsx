@@ -1,51 +1,64 @@
 import React, { Component } from "react";
 import "../App.css";
-//import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 export class ToDoItemRow extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-        todoItem: this.props.toDo,
-        isEditing: false,
-        hideUpdateButton:true,
-        hideEditButton:false
+    this.state = {
+      todoItem: this.props.toDo,
+      isEditing: false,
+      hideUpdateButton: true,
+      hideEditButton: false,
     };
 
-    this.editItemClicked = this.editItemClicked.bind(this);
+    this.editItemClicked = this.editButtonClicked.bind(this);
     this.todoUpdated = this.todoUpdated.bind(this);
+    this.updateButtonClicked = this.updateButtonClicked.bind(this);
   }
 
-  editItemClicked(e){
+  editButtonClicked(e) {
     e.preventDefault();
-    this.setState(
-      {
-      isEditing:true,
-      hideUpdateButton:false,
-      hideEditButton:true
+    this.setState({
+      isEditing: true,
+      hideUpdateButton: false,
+      hideEditButton: true,
     });
   }
-  todoUpdated(e){
+
+  updateButtonClicked(e) {
+    e.preventDefault();
+    this.setState({
+      isEditing: false,
+      hideUpdateButton: true,
+      hideEditButton: false,
+    });
+  }
+
+  todoUpdated(e) {
     const newTodo = this.state.todoItem;
     newTodo.description = e.target.value;
-    this.setState({todoItem: newTodo});
+    this.setState({
+      todoItem: newTodo,
+    });
   }
   render() {
     let todoDetails;
-      if(this.state.isEditing)
-      {
-        todoDetails = this.state.todoItem.description;
-      }
-      else{
-        todoDetails = this.state.todoItem.description + " | " +this.state.todoItem.deadline;
-      }
+    if (this.state.isEditing) {
+      todoDetails = this.state.todoItem.description;
+    } else {
+      todoDetails =
+        this.state.todoItem.description + " | " + this.state.todoItem.deadline;
+    }
     return (
-      
       <div className="list-no-bullets">
         <li>
           <input className="checkbox" type="checkbox" /> &nbsp;
-          <input className="todo" value={todoDetails} onChange={this.todoUpdated}>
-        </input>
+          <input
+            className="todo"
+            value={todoDetails}
+            onChange={this.todoUpdated}
+          ></input>
           &nbsp;
           <button
             className="button"
@@ -58,15 +71,15 @@ export class ToDoItemRow extends Component {
             className="edit-button"
             type="button"
             hidden={this.state.hideEditButton}
-            onClick={(event) => this.editItemClicked(event)}
-            >
+            onClick={(event) => this.editButtonClicked(event)}
+          >
             EDIT
           </button>
           <button
             type="button"
             hidden={this.state.hideUpdateButton}
-            onClick={() => this.props.editItemHandler(this.props.toDo)}
-            >
+            onClick={(event) => this.updateButtonClicked(event)}
+          >
             UPDATE
           </button>
         </li>
@@ -74,3 +87,8 @@ export class ToDoItemRow extends Component {
     );
   }
 }
+ToDoItemRow.propTypes = {
+  id: PropTypes.number,
+  description: PropTypes.string,
+  deadline: PropTypes.instanceOf(Date),
+};
