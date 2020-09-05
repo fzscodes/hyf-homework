@@ -1,5 +1,7 @@
 potato
 tomato
-cabbage
+savoy cabbage
 cucumber
 peas
+carrot
+spinach
