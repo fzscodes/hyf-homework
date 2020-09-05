@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { ToDoItemRow } from "./ToDoItemRow";
 import "../App.css";
-//import PropTypes from "prop-types";
 
 class ToDoList extends Component {
   constructor(props) {
@@ -11,26 +10,23 @@ class ToDoList extends Component {
       newTodo: "",
       newTodoDeadline: "",
     };
-    this.fetchData = this.fetchData.bind(this);
+    this.fetchData = this.fetchTodos.bind(this);
     this.addItem = this.addItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.changeHandler = this.changeHandler.bind(this);
   }
-  componentDidMount() {
-    this.fetchData();
+
+  async componentDidMount() {
+    const todos = await this.fetchTodos();
+    this.setState({ toDoList: todos });
   }
-  fetchData() {
+
+  async fetchTodos() {
     const baseUrl =
       "https://gist.githubusercontent.com/benna100/391eee7a119b50bd2c5960ab51622532/raw";
-    fetch(baseUrl)
-      .then((res) => res.json())
-      .then((data) =>
-        this.setState({
-          toDoList: data,
-        })
-      )
-      .catch((err) => this.setState({ error: true }));
+    const todos = await fetch(baseUrl);
+    return todos.json();
   }
 
   addItem(todoDescription, todoDeadline) {
@@ -71,7 +67,6 @@ class ToDoList extends Component {
         toDo={todo}
         key={todo.id}
         deleteItemHandler={this.deleteItem}
-        updateItemHandler={this.updateItem}
       />
     ));
     if (rows.length > 0) {

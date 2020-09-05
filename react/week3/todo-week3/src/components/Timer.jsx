@@ -7,14 +7,14 @@ class Timer extends Component {
   }
 
   componentDidMount() {
-    this.timerId = setInterval(() => this.tick(), 1000);
+    this.timerId = setInterval(() => this.incrementCount(), 1000);
   }
 
   componentWillUnmount() {
     this.timerId = clearInterval();
   }
 
-  tick() {
+  incrementCount() {
     this.setState({ count: this.state.count + 1 });
   }
 

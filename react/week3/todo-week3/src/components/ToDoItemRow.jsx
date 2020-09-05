@@ -13,7 +13,7 @@ export class ToDoItemRow extends Component {
     };
 
     this.editItemClicked = this.editButtonClicked.bind(this);
-    this.todoUpdated = this.todoUpdated.bind(this);
+    this.updateTodoItem = this.updateTodoItem.bind(this);
     this.updateButtonClicked = this.updateButtonClicked.bind(this);
   }
 
@@ -35,7 +35,7 @@ export class ToDoItemRow extends Component {
     });
   }
 
-  todoUpdated(e) {
+  updateTodoItem(e) {
     const newTodo = this.state.todoItem;
     newTodo.description = e.target.value;
     this.setState({
@@ -43,13 +43,9 @@ export class ToDoItemRow extends Component {
     });
   }
   render() {
-    let todoDetails;
-    if (this.state.isEditing) {
-      todoDetails = this.state.todoItem.description;
-    } else {
-      todoDetails =
-        this.state.todoItem.description + " | " + this.state.todoItem.deadline;
-    }
+    let todoDetails = this.state.isEditing
+      ? this.state.todoItem.description
+      : this.state.todoItem.description + " | " + this.state.todoItem.deadline;
     return (
       <div className="list-no-bullets">
         <li>
@@ -57,7 +53,7 @@ export class ToDoItemRow extends Component {
           <input
             className="todo"
             value={todoDetails}
-            onChange={this.todoUpdated}
+            onChange={(e) => this.updateTodoItem(e)}
           ></input>
           &nbsp;
           <button
