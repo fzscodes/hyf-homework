@@ -3,5 +3,3 @@ tomato
 savoy cabbage
 cucumber
 peas
-carrot
-spinach
