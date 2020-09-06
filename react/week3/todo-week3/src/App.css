@@ -1,0 +1,65 @@
+.App {
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.list-no-bullets {
+  list-style-type: none;
+  border: 1px white solid;
+  margin-bottom: 1%;
+  width: auto;
+}
+.todo {
+  width: 15em;
+}
+input:focus {
+  outline: none;
+}
+.checkbox:checked + .todo {
+  text-decoration: line-through;
+}
+.button,
+.edit-button,
+input[type="submit"] {
+  border-radius: 10%;
+  transition-duration: 0.4s;
+}
+.edit-button:hover {
+  background-color: rgb(24, 134, 230);
+  color: white;
+}
+.button:hover {
+  background-color: rgb(194, 15, 15);
+  color: white;
+}
+input[type="submit"]:hover {
+  background-color: #4caf50;
+}
