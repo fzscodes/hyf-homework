@@ -1,7 +1,5 @@
 potato
 tomato
-savoy cabbage
+red cabbage
 pea
 cucumber
-eggplant
-broccoli
