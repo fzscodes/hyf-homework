@@ -1,0 +1,8 @@
+.userlist{
+  text-align: center;
+}
+.user_img{
+  height: 5%;
+  width: 5%;
+  border-radius: 50%;
+}
